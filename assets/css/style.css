@@ -19,7 +19,7 @@ main {
     display: flex;
     justify-content: center;
     padding-top: 10%;
-    margin: 10% 30% 50% 30%;
+    margin: 0% 30% 50% 30%;
     align-content: center;
 }
 
@@ -63,12 +63,12 @@ li {
 
 .timer {
     float: right;
-    padding: 10px;
+    padding: 2px;
 }
 
 .highscores {
     float: left;
-    padding: 10px;
+    padding: 2px;
 }
 .start {
     text-align: center;
