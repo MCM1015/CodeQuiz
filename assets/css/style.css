@@ -1,0 +1,97 @@
+/*Variables*/
+:root {
+    --dark: black;
+    --white: white;
+    --darkpurple:  rgb(71, 4, 110);
+    --lightpurple:  rgb(166, 118, 194);
+    --standardmargin: 15x 15px 15px 0px;
+  }
+
+
+
+body {
+    color:var(--dark);
+    background-color: var(--white);
+    font-size: 14px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    margin: 10% 30% 50% 30%;
+    align-content: center;
+}
+
+link {
+    color: var(--darkpurple);
+}
+
+.highscores:hover {
+    color: var(--lightpurple);
+}
+
+button {
+    color: var(--white);
+    background-color: var(--darkpurple);
+    padding: 5px;
+}
+
+button:hover {
+    background-color: var(--lightpurple);
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+p {
+    padding: 5px;
+}
+
+li {
+    padding: 2px;
+}
+
+.timer {
+    float: right;
+    padding: 10px;
+}
+
+.highscores {
+    float: left;
+    padding: 10px;
+}
+.start {
+    text-align: center;
+    padding: 5px;
+}
+
+.answers {
+    margin: 15px 15px 15px 0px;
+}
+
+.wrong-right {
+    padding: 2px;
+    border-top: var(--dark) solid 1px;
+    font-style: italic;
+    color: grey;
+    font-weight: 600;
+}
+
+.finalscore {
+    margin: 15px 15px 15px 0px;
+}
+
+.list-of-scores-top3 {
+    background-color: var(--lightpurple);
+    margin: 15px 15px 15px 0px;
+}

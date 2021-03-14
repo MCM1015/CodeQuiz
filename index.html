@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Code Quiz</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <a href="#highscore-scrn" class ="highscores">Highscores</a>
+        <div class= "timer">
+            <div class = "timer-text">
+            <h4>Time: <span class="timer-count">0</span></h4>
+          </div>
+    </header>
+
+    <main>
+
+        <section class = "initial-page">
+            <div class="start">
+                <h1 class="codingquiz">Coding Quiz Challenge</h1>
+                <p class="directions">Answer the following coding questions until the time runs out. Each correct answer
+                    is worth 5 points. Everytime you answer incorrectly 5 seconds is deducted from the timer.</p>
+                <button class="start-btn">Start Quiz</button>
+            </div>
+        </section>
+
+      <section class = "q&a">
+            <div class="question-answers">
+                <h1 class="question">question</h1>
+                <ul class="answers">
+                        <li><button>1.</button></li>
+                        <li><button>2.</button></li>
+                        <li><button>3.</button></li>
+                        <li><button>4.</button></li>
+                </ul>
+                <h3 class="wrong-right">Wrong!</h3>
+            </div>
+        </section>
+
+        <section class="final">
+            <div class="endofgame">
+                <h1 class="alldone">All Done!</h1>
+                <h3 class="finalscore">Final score is <span class ="userscore">0</span></h3>
+                <div class="form">
+                    <label for="initials-input">Enter Initials:</label>
+                    <input type="text" class="form-control" id="initials-input"/>
+                    <button class="submit">Submit</button>
+                  </div>
+            </div>
+        </section>
+
+        <section class = "tally">
+            <div id="highscore-scrn">
+                <h1 class="highscore-header">Highscores</h1>
+                <ul class="list-of-scores-top3">
+                    <li>1. highscore1</li>
+                    <li>2. highscore2</li>
+                    <li>3. highscore3</li>
+                </ul>
+                <button class="goback-btn">Go Back</button>
+                <button class="clear">Clear Highscores</button>
+            </div>
+        </section>
+
+    </main>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
