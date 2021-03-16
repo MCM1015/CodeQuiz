@@ -11,16 +11,16 @@
 
 <body>
     <header>
-        <a href="#highscore-scrn" class ="highscores">Highscores</a>
-        <div class= "timer">
-            <div class = "timer-text">
-            <h4>Time: <span class="timer-count">0</span></h4>
-          </div>
+        <a href="#highscore-scrn" class="highscores">Highscores</a>
+        <div class="timer">
+            <div class="timer-text">
+                <h4>Time: <span class="timer-count">0</span></h4>
+            </div>
     </header>
 
     <main>
 
-        <section class = "initial-page">
+        <section id="initial-page">
             <div class="start">
                 <h1 class="codingquiz">Coding Quiz Challenge</h1>
                 <p class="directions">Answer the following coding questions until the time runs out. Each correct answer
@@ -29,38 +29,35 @@
             </div>
         </section>
 
-      <section class = "q&a">
+        <section id="q&a">
             <div class="question-answers">
                 <h1 class="question">question</h1>
                 <ul class="answers">
-                        <li><button>1.</button></li>
-                        <li><button>2.</button></li>
-                        <li><button>3.</button></li>
-                        <li><button>4.</button></li>
+                    <li><button class="answer1">1.</button></li>
+                    <li><button class="answer2">2.</button></li>
+                    <li><button class="answer3">3.</button></li>
+                    <li><button class="answer4">4.</button></li>
                 </ul>
-                <h3 class="wrong-right">Wrong!</h3>
+                <h3 id="wrong-right">Wrong!</h3>
             </div>
         </section>
 
-        <section class="final">
+        <section id="final">
             <div class="endofgame">
                 <h1 class="alldone">All Done!</h1>
-                <h3 class="finalscore">Final score is <span class ="userscore">0</span></h3>
+                <h3 class="finalscore">Final score is <span class="userscore">0</span></h3>
                 <div class="form">
                     <label for="initials-input">Enter Initials:</label>
-                    <input type="text" class="form-control" id="initials-input"/>
+                    <input type="text" class="form-control" id="initials-input" />
                     <button class="submit">Submit</button>
-                  </div>
+                </div>
             </div>
         </section>
 
-        <section class = "tally">
+        <section id="tally">
             <div id="highscore-scrn">
                 <h1 class="highscore-header">Highscores</h1>
                 <ul class="list-of-scores-top3">
-                    <li>1. highscore1</li>
-                    <li>2. highscore2</li>
-                    <li>3. highscore3</li>
                 </ul>
                 <button class="goback-btn">Go Back</button>
                 <button class="clear">Clear Highscores</button>
