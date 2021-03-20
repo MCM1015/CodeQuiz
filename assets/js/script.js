@@ -34,7 +34,7 @@ var submitButton = document.querySelector(".submit");
 //hide all other screens until go back, then start over
 var tally = document.getElementById("tally");
 var highScores = document.querySelector(".highscores");
-var highScoresList = document.querySelector(".list-of-scores-top3");
+var highScoresList = document.querySelector(".list-of-scores-top");
 var goBackButton = document.querySelector(".goback-btn");
 //clear highscores on clear select, remove from local storage
 var clearButton = document.querySelector(".clear");
@@ -68,7 +68,7 @@ var questionsList = [
     }
 ];
 
-var currentquestion = 0; //increment by 1 once someone answers a question
+var currentQuestion = 0; //increment by 1 once someone answers a question
 
 //initial page view
 qAndA.style.display = "none";
@@ -79,56 +79,62 @@ tally.style.display = "none";
 //FUNCTIONS
 
 
-//start click event //Quiz
-Start();
+//Start 
 function Start() {
-    startButton.addEventListener("click", function () {
-        qAndA.style.display = "block";
-        intialView.style.display = "none";
-        wrongRight.style.display = "none";
-        secondsLeft = 60;
-        Quiz();
-        setTime();
-        score = 0;
-        currentquestion = 0;
-    });
+    qAndA.style.display = "block";
+    intialView.style.display = "none";
+    wrongRight.style.display = "none";
+    secondsLeft = 60;
+    score = 0;
+    currentQuestion = 0;
+    Quiz();
+    setTime();
 }
 
+//start click event
+startButton.addEventListener("click", Start);
+
+//Quiz 
 function Quiz() {
-    question.textContent = questionsList[currentquestion].questions;
-    answerButton1.textContent = questionsList[currentquestion].answersList[0];
-    answerButton2.textContent = questionsList[currentquestion].answersList[1];
-    answerButton3.textContent = questionsList[currentquestion].answersList[2];
-    answerButton4.textContent = questionsList[currentquestion].answersList[3];
-
-    var buttonContainer = document.querySelector(".question-answers");
-    buttonContainer.addEventListener("click", function (event) {
-        var element = event.target.textContent;
-        var button = event.target;
-        if (button.matches("button")) {
-            if (currentquestion < questionsList.length) {
-                if (element === questionsList[currentquestion].correctAnswer) {
-                    wrongRight.style.display = "block";
-                    wrongRight.textContent = "Correct!";
-                    score += 5;
-                } else {
-                    wrongRight.style.display = "block";
-                    secondsLeft -= 5;
-                }
-                currentquestion++;
-                Quiz();
-                console.log(currentquestion);
-                console.log(questionsList[currentquestion].correctAnswer);
-            } else {
-                secondsLeft = 0;
-                setTime();
-                endQuiz();
-                //stopPropagation(timerInterval);
-            }
-        }
-    });
+    highScores.style.display = "none";
+    console.log(currentQuestion);
+    question.textContent = questionsList[currentQuestion].questions;
+    answerButton1.textContent = questionsList[currentQuestion].answersList[0];
+    answerButton2.textContent = questionsList[currentQuestion].answersList[1];
+    answerButton3.textContent = questionsList[currentQuestion].answersList[2];
+    answerButton4.textContent = questionsList[currentQuestion].answersList[3];
 
 }
+
+//Quiz answer click event
+var buttonContainer = document.querySelector(".question-answers");
+buttonContainer.addEventListener("click", function (event) {
+    var element = event.target.textContent;
+    var button = event.target;
+    if (button.matches("button")) {
+        if (element === questionsList[currentQuestion].correctAnswer) {
+            console.log(element);
+            console.log(questionsList[currentQuestion].correctAnswer);
+            wrongRight.style.display = "block";
+            wrongRight.textContent = "Correct!";
+            score += 5;
+        } else {
+            wrongRight.style.display = "block";
+            wrongRight.textContent = "Wrong!";
+            secondsLeft -= 5;
+        }
+        currentQuestion++;
+        if (currentQuestion < questionsList.length) {
+
+            Quiz();
+        } else {
+            score = score + secondsLeft;
+            secondsLeft = 0;
+            setTime();
+            endQuiz();
+        }
+    }
+});
 
 //endgame function
 function endQuiz() {
@@ -136,31 +142,37 @@ function endQuiz() {
     qAndA.style.display = "none";
     intialView.style.display = "none";
     tally.display = "none";
+    highScores.style.display = "block";
     timer.textContent = 0;
     userScore.textContent = score;
     console.log(userInitials.textContent);
 }
 
+//submit score click event
 submitButton.addEventListener("click", function () {
     final.style.display = "none";
     qAndA.style.display = "none";
     intialView.style.display = "none";
     tally.style.display = "block";
     // store userInitials
-    localStorage.setItem("userInitials", JSON.stringify(userInitials))
+    //localStorage.setItem("userInitials", JSON.stringify(userInitials))
     // store userScore
-    localStorage.setItem("userScore", JSON.stringify(userScore))
+    //localStorage.setItem("userScore", JSON.stringify(userScore))
     // sort and display highscores - highscore sort function
     //highScoresList.children[0].textContent = JSON.parse(localStorage.getItem("userInitials" + " - " + "userScore"));
     var highScoresListElement = document.createElement("li");
     highScoresListElement.textContent = (userInitials.value + " - " + userScore.textContent);
     highScoresList.appendChild(highScoresListElement);
+    var yHighScoresy = localStorage.setItem("userScore.textContent", JSON.stringify(userScore.textContent));
+    console.log(yHighScoresy);
+    var xHighScoresx = JSON.parse(localStorage.getItem("userScore.textContent", userScore.textContent));
+    console.log(xHighScoresx);
     //create a single arrary and store it to local storage and pull from objects inside of array 
+
 });
 
 
-//timer function 
-
+//timer 
 function setTime() {
     // Sets interval in variable
     var timerInterval = setInterval(function () {
@@ -177,10 +189,7 @@ function setTime() {
     }, 1000);
 }
 
-//add seconds left on timer to user score
-
-
-//highscore link event *
+//highscore link event 
 highScores.addEventListener("click", function () {
     qAndA.style.display = "none";
     final.style.display = "none";
@@ -192,7 +201,7 @@ highScores.addEventListener("click", function () {
 
 //High scores go back click event *
 goBackButton.addEventListener("click", function () {
-    Start();
+    //Start();
     qAndA.style.display = "none";
     final.style.display = "none";
     tally.style.display = "none";
@@ -202,7 +211,8 @@ goBackButton.addEventListener("click", function () {
 
 //clear highscores click event *
 clearButton.addEventListener("click", function () {
-    highScoresList.children.textContent = "";
+    highScoresList.textContent = ""
+    console.log(highScoresList.textContent)
 
 });
 
